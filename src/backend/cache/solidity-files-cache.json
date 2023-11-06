@@ -341,6 +341,42 @@
         "Address"
       ]
     },
+    "D:\\Downloads\\Telegram Desktop\\nft_marketplace-main\\nft_marketplace-main\\node_modules\\@openzeppelin\\contracts\\utils\\Context.sol": {
+      "lastModificationDate": 1699162581268,
+      "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
+      "sourceName": "@openzeppelin/contracts/utils/Context.sol",
+      "solcConfig": {
+        "version": "0.8.20",
+        "settings": {
+          "evmVersion": "paris",
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Context"
+      ]
+    },
     "D:\\Downloads\\Telegram Desktop\\nft_marketplace-main\\nft_marketplace-main\\node_modules\\@openzeppelin\\contracts\\utils\\Strings.sol": {
       "lastModificationDate": 1699162588303,
       "contentHash": "48686fc32a22a3754b8e63321857dd2a",
@@ -380,44 +416,6 @@
         "Strings"
       ]
     },
-    "D:\\Downloads\\Telegram Desktop\\nft_marketplace-main\\nft_marketplace-main\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\ERC165.sol": {
-      "lastModificationDate": 1699162583250,
-      "contentHash": "0e7db055ce108f9da7bb6686a00287c0",
-      "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
-      "solcConfig": {
-        "version": "0.8.20",
-        "settings": {
-          "evmVersion": "paris",
-          "optimizer": {
-            "enabled": false,
-            "runs": 200
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.bytecode",
-                "evm.deployedBytecode",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        }
-      },
-      "imports": [
-        "./IERC165.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC165"
-      ]
-    },
     "D:\\Downloads\\Telegram Desktop\\nft_marketplace-main\\nft_marketplace-main\\node_modules\\@openzeppelin\\contracts\\token\\ERC721\\IERC721Receiver.sol": {
       "lastModificationDate": 1699162587423,
       "contentHash": "c22d4395e33763de693fd440c6fd10e1",
@@ -454,10 +452,10 @@
         "IERC721Receiver"
       ]
     },
-    "D:\\Downloads\\Telegram Desktop\\nft_marketplace-main\\nft_marketplace-main\\node_modules\\@openzeppelin\\contracts\\utils\\Context.sol": {
-      "lastModificationDate": 1699162581268,
-      "contentHash": "5f2c5c4b6af2dd4551027144797bc8be",
-      "sourceName": "@openzeppelin/contracts/utils/Context.sol",
+    "D:\\Downloads\\Telegram Desktop\\nft_marketplace-main\\nft_marketplace-main\\node_modules\\@openzeppelin\\contracts\\utils\\introspection\\ERC165.sol": {
+      "lastModificationDate": 1699162583250,
+      "contentHash": "0e7db055ce108f9da7bb6686a00287c0",
+      "sourceName": "@openzeppelin/contracts/utils/introspection/ERC165.sol",
       "solcConfig": {
         "version": "0.8.20",
         "settings": {
@@ -482,12 +480,14 @@
           }
         }
       },
-      "imports": [],
+      "imports": [
+        "./IERC165.sol"
+      ],
       "versionPragmas": [
         "^0.8.0"
       ],
       "artifacts": [
-        "Context"
+        "ERC165"
       ]
     },
     "D:\\Downloads\\Telegram Desktop\\nft_marketplace-main\\nft_marketplace-main\\node_modules\\@openzeppelin\\contracts\\utils\\math\\Math.sol": {
@@ -713,8 +713,8 @@
       ]
     },
     "D:\\Downloads\\Telegram Desktop\\nft_marketplace-main\\nft_marketplace-main\\src\\backend\\contracts\\NFT.sol": {
-      "lastModificationDate": 1699246988518,
-      "contentHash": "16140e04cce0b6fc5fe7af30a5a6c186",
+      "lastModificationDate": 1699247539554,
+      "contentHash": "b03648c2062f54aacf1aea7b85d07cb5",
       "sourceName": "src/backend/contracts/NFT.sol",
       "solcConfig": {
         "version": "0.8.20",
@@ -744,7 +744,7 @@
         "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol"
       ],
       "versionPragmas": [
-        "^0.8.4"
+        "^0.8.7"
       ],
       "artifacts": [
         "NFT"

@@ -43,7 +43,7 @@ const Navigation = ({ web3Handler, account }) => {
                                 rel="noopener noreferrer"
                                 className="button nav-button btn-sm mx-4">
                                 <Typography style={{color:"white"}}>
-                                    {account.slice(0, 5) + '...' + account.slice(38, 42)}
+                                    { '...' + account.slice(33, 42)}
                                 </Typography>
 
                             </Typography>

@@ -37,6 +37,8 @@
         accounts: [`0x${PRIVATE_KEY}`],
         gas: 2100000,
         gasPrice: 8000000000,
+        gasLimit: 5000000,
       },
+      allowUnlimitedContractSize: true
     },
   };
