@@ -7,10 +7,10 @@ export default function MyPurchases({ marketplace, nft, account }) {
   const [loading, setLoading] = useState(true);
   const [purchases, setPurchases] = useState([]);
 
-  const loadPurchasedItems = async () => {
+  const loadPurchasedItems = async () => {// here sender is the account address
     // Fetch purchased items from the marketplace by querying the Bought events with the buyer set as the user
     const filter = marketplace.filters.Bought(null, null, null, null, null, account);
-    const results = await marketplace.queryFilter(filter);
+    const results = await marketplace.queryFilter(filter);// the filter used to display only purchased items
 
     // Fetch metadata of each NFT and add it to the purchasedItem object
     const purchases = await Promise.all(results.map(async i => {

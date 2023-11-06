@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import { Row, Col, Card } from "react-bootstrap";
 
-// Render the sold items
+// Rendering the sold items iterating
 function renderSoldItems(items) {
   return (
     <>
@@ -35,7 +35,7 @@ export default function MyListedItems({ marketplace, nft, account }) {
     let listedItems = [];
     let soldItems = [];
 
-    for (let i = 1; i <= itemCount; i++) {
+    for (let i = 1; i <= itemCount; i++) {//itelating for all the listed items
       const item = await marketplace.items(i);
 
       if (item.seller.toLowerCase() === account) {
@@ -69,13 +69,13 @@ export default function MyListedItems({ marketplace, nft, account }) {
       }
     }
 
-    setLoading(false);
-    setListedItems(listedItems);
+    setLoading(false);//now stop loading
+    setListedItems(listedItems);//items are now set useState
     setSoldItems(soldItems);
   };
 
   useEffect(() => {
-    loadListedItems();
+    loadListedItems();//every time you refresh it will load
   }, []);
 
   // Show loading message if the data is still loading

@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
 import "hardhat/console.sol";
 
-contract Marketplace is ReentrancyGuard {
+contract Marketplace is ReentrancyGuard {//To prevent vulnerabilities we use ReentrancyGuard 
 
     // Variables
       // the account that receives royalty fees
@@ -24,9 +24,9 @@ contract Marketplace is ReentrancyGuard {
         address payable  royaltyFeeAccount ;
     }
 
-    // itemId -> Item
+    // itemId -> Item mapping for NFT'S
     mapping(uint => Item) public items;
-
+// Triggered when a seller offers an item for sale on the marketplace.
     event Offered(
         uint itemId,
         address indexed nft,
@@ -34,6 +34,7 @@ contract Marketplace is ReentrancyGuard {
         uint price,
         address indexed seller
     );
+// Triggered when a buyer successfully purchases an item from the marketplace.
     event Bought(
         uint itemId,
         address indexed nft,
@@ -63,9 +64,10 @@ contract Marketplace is ReentrancyGuard {
             _price,
             payable(msg.sender),
             false,
-            payable(msg.sender)
+            payable(msg.sender)//assuming royalty is the same address can be different also
         );
         // emit Offered event
+        // Emit the 'Offered' event to notify external observers that a new item is being offered for sale on the marketplace.
         emit Offered(
             itemCount,
             address(_nft),
@@ -74,21 +76,23 @@ contract Marketplace is ReentrancyGuard {
             msg.sender
         );
     }
-
+    //this will excecute the purchase
     function purchaseItem(uint _itemId) external payable nonReentrant {
         uint _totalPrice = getTotalPrice(_itemId);
         Item storage item = items[_itemId];
-        require(_itemId > 0 && _itemId <= itemCount, "item doesn't exist");
-        require(msg.value >= _totalPrice, "not enough ether to cover item price and market fee");
+        require(_itemId > 0 && _itemId <= itemCount, "item doesn't exist");//does it exist
+        require(msg.value >= _totalPrice, "not enough ether to cover item price and market fee");//does the value is > the total price of NFT
         require(!item.sold, "item already sold");
         // pay seller and royaltyFeeAccount
         item.seller.transfer(item.price);
-        item.royaltyFeeAccount.transfer(_totalPrice - item.price);
+        item.royaltyFeeAccount.transfer(_totalPrice - item.price);//royalty fee transfer
         // update item to sold
         item.sold = true;
         // transfer nft to buyer
         item.nft.transferFrom(address(this), msg.sender, item.tokenId);
         // emit Bought event
+        // Emit the 'Bought' event to notify external observers when a successful purchase occurs on the marketplace.
+// Parameters:
         emit Bought(
             _itemId,
             address(item.nft),
@@ -98,6 +102,7 @@ contract Marketplace is ReentrancyGuard {
             msg.sender
         );
     }
+    //total price including royalty is returned
     function getTotalPrice(uint _itemId) view public returns(uint){
         return((items[_itemId].price*(100 + royaltyPercent))/100);
     }

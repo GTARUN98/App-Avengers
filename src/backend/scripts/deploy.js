@@ -15,7 +15,7 @@ async function main() {
   saveFrontendFiles(marketplace , "Marketplace");
   saveFrontendFiles(nft , "NFT");
 }
-
+//directly saving the addresses where deployed and abi directly after succesfull deployment
 function saveFrontendFiles(contract, name) {
   const fs = require("fs");
   const contractsDir = __dirname + "/../../frontend/contractsData";

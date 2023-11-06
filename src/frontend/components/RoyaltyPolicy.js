@@ -15,7 +15,7 @@ function RoyaltyPolicy(){
         padding: "16px",
       }}
     >
-        <Typography>Our Policy States to give 20% Royalty For A NFT Minted and Every Time That NFT Is Transacted To The Creator</Typography>
+        <Typography>Our Policy States to give 20% Royalty For A NFT Minted and For That NFT Transacted</Typography>
     </div>
         
         

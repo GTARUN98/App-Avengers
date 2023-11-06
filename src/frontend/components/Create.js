@@ -18,11 +18,9 @@ async function createIPFSClient() {
   const auth =
     "Basic " +
     btoa(
-      // process.env.INFURA_PROJECT_ID_IPFS +
-      "2Xl1Z35GwRtxJAqhon13g2HQtDQ" +
-        ":" +
-        "dda10586bf32aa88a897a548b0ab7eba"
-        // process.env.INFURA_PROJECT_SECRET_KEY_IPFS
+      process.env.INFURA_PROJECT_ID_IPFS +
+      
+        process.env.INFURA_PROJECT_SECRET_KEY_IPFS
     ).toString("base64");
   console.log(`auth is `, auth);
   try {
@@ -90,7 +88,7 @@ const Create = ({ marketplace, nft }) => {
     // Mint NFT
     await (await nft.mint(uri)).wait();
     // Get tokenId of new NFT
-    const id = await nft.tokenCount();
+    const id = await nft._tokenIds();
     // Approve marketplace to spend NFT
     await (await nft.setApprovalForAll(marketplace.address, true)).wait();
     // Add NFT to marketplace

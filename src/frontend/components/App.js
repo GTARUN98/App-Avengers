@@ -4,21 +4,21 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import Navigation from './Navbar';
-import Home from './Home.js'
 import Create from './Create.js'
 import RoyaltyPolicy from './RoyaltyPolicy.js'
-import MyListedItems from './MyListedItems.js'
 import MyPurchases from './MyPurchases.js'
+import NFTAddress from '../contractsData/NFT-address.json'
+import Home from './Home.js'
 import MarketplaceAbi from '../contractsData/Marketplace.json'
+import MyListedItems from './MyListedItems.js'
 import MarketplaceAddress from '../contractsData/Marketplace-address.json'
 import NFTAbi from '../contractsData/NFT.json'
-import NFTAddress from '../contractsData/NFT-address.json'
+import Navigation from './Navbar';
 import { useState } from 'react'
 import { ethers } from "ethers"
 import { Spinner } from 'react-bootstrap'
 
-import './App.css';
+import './App.css'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -27,7 +27,7 @@ function App() {
   const [marketplace, setMarketplace] = useState({})
   // MetaMask Login/Connect
   const web3Handler = async () => {
-    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });//request
     setAccount(accounts[0])
     // Get provider from Metamask
     const provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -38,13 +38,13 @@ function App() {
       window.location.reload();
     })
 
-    window.ethereum.on('accountsChanged', async function (accounts) {
+    window.ethereum.on('accountsChanged', async function (accounts) {//upon changing the account
       setAccount(accounts[0])
       await web3Handler()
     })
     loadContracts(signer)
   }
-  const loadContracts = async (signer) => {
+  const loadContracts = async (signer) => {//so that in every page we need not to call again
     // Get deployed copies of contracts
     const marketplace = new ethers.Contract(MarketplaceAddress.address, MarketplaceAbi.abi, signer)
     setMarketplace(marketplace)
@@ -76,10 +76,10 @@ function App() {
               <Route path="/create" element={
                 <Create marketplace={marketplace} nft={nft} />
               } />
-              <Route path="/my-listed-items" element={
+              <Route path="/myListedItems" element={
                 <MyListedItems marketplace={marketplace} nft={nft} account={account} />
               } />
-              <Route path="/my-purchases" element={
+              <Route path="/myPurchases" element={
                 <MyPurchases marketplace={marketplace} nft={nft} account={account} />
               } />
             </Routes>

@@ -8,7 +8,7 @@ const Home = ({ marketplace, nft }) => {
   const [items, setItems] = useState([]);
 
   const loadMarketplaceItems = async () => {
-    // Load all unsold items
+    // Loading all unsold items
     const itemCount = await marketplace.itemCount();
     console.log(`itemcount is `, itemCount);
     let items = [];
@@ -21,14 +21,14 @@ const Home = ({ marketplace, nft }) => {
         // Get URI URL from the NFT contract
         const uri = await nft.tokenURI(item.tokenId);
 
-        // Use the URI to fetch the NFT metadata stored on IPFS
+        // Use the URI to fetch the NFT metadata stored on IPFS that has title,desc,img hash
         const response = await fetch(uri);
         const metadata = await response.json();
 
-        // Get the total price of the item (item price + fee)
+        // Getting the total price of the item (item price + royaltyFee)
         const totalPrice = await marketplace.getTotalPrice(item.itemId);
 
-        // Add item to items array
+        // Add item to items array using usestate hook
         items.push({
           totalPrice,
           itemId: item.itemId,
@@ -46,7 +46,7 @@ const Home = ({ marketplace, nft }) => {
 
   const buyMarketItem = async (item) => {
     await (await marketplace.purchaseItem(item.itemId, { value: item.totalPrice })).wait()
-    // await (await marketplace.purchaseItem(item.itemId)).wait();
+    
     loadMarketplaceItems();
   };
 
@@ -64,7 +64,7 @@ const Home = ({ marketplace, nft }) => {
 
   return (
     <div className="flex justify-center">
-      {items.length > 0 ? (
+      {items.length > 0 ? (//if no items present
         <div className="px-5 container">
           <Row xs={1} md={2} lg={4} className="g-4 py-5">
             {items.map((item, idx) => (

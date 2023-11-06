@@ -32,8 +32,8 @@ const Navigation = ({ web3Handler, account }) => {
             <div className="nav-item"><Typography   onClick={toNavigate} value='' style={{marginRight:'15px',color:'white',cursor:'pointer',padding:'15px'}}>HomePage</Typography></div>
             <Typography   value='royaltyPolicy' onClick={toNavigate} style={{marginRight:'15px',color:'white',cursor:'pointer',padding:'15px'}}>Royalty Policy</Typography>
             <Typography   onClick={toNavigate} value='create' style={{marginRight:'15px',color:'white',cursor:'pointer',padding:'15px'}}>Create</Typography>
-            <Typography   onClick={toNavigate} value='my-listed-items' style={{marginRight:'15px',color:'white',cursor:'pointer',padding:'15px'}}>Listed NFT's</Typography>
-            <Typography   onClick={toNavigate} value='my-purchases' style={{marginRight:'15px',color:'white',cursor:'pointer',padding:'15px'}}>My Puchases</Typography>
+            <Typography   onClick={toNavigate} value='myListedItems' style={{marginRight:'15px',color:'white',cursor:'pointer',padding:'15px'}}>Listed NFT's</Typography>
+            <Typography   onClick={toNavigate} value='myPurchases' style={{marginRight:'15px',color:'white',cursor:'pointer',padding:'15px'}}>My Puchases</Typography>
             <Typography   style={{marginRight:'15px',color:'white',cursor:'pointer',padding:'15px'}}>
 	
 	{account ? (
