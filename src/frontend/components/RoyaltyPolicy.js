@@ -23,3 +23,5 @@ function RoyaltyPolicy(){
 )}
 
 export default RoyaltyPolicy;
+
+//USELESS

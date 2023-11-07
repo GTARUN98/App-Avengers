@@ -82,3 +82,5 @@ export default function MyPurchases({ marketplace, nft, account }) {
     </div>
   );
 }
+
+//USELESS

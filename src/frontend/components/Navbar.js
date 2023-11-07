@@ -63,3 +63,5 @@ const Navigation = ({ web3Handler, account }) => {
 }
 
 export default Navigation;
+
+//USELESS

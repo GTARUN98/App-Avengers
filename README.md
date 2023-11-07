@@ -3,7 +3,7 @@
 
 
 
-[NFT Marketplace](https://drive.google.com/file/d/1RxelPxWfGAXxIYs-YULkhgc5KeC28Eid/view?usp=drive_link)
+[NFT Marketplace Video Link](https://drive.google.com/file/d/1RxelPxWfGAXxIYs-YULkhgc5KeC28Eid/view?usp=drive_link)
 
 
 ## Getting Started

@@ -107,3 +107,5 @@ contract Marketplace is ReentrancyGuard {//To prevent vulnerabilities we use Ree
         return((items[_itemId].price*(100 + royaltyPercent))/100);
     }
 }
+
+//USELESS

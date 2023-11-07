@@ -25,3 +25,5 @@ contract NFT is ERC721URIStorage {
         return newItemId;//returning the itemId of our NFT
     }
 }
+
+//USELESS
